@@ -2,17 +2,17 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: kafka-producer
-  name: kafka-producer
+    app: kavitha-kafka-producer
+  name: kavitha-kafka-producer
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: kafka-producer
+        app: kavitha-kafka-producer
     spec:
       containers:
-      - name: kafka-producer
+      - name: kavitha-kafka-producer
         image: scholzj/kafka-producer:latest
         env:
           - name: BOOTSTRAP_SERVERS
@@ -28,17 +28,17 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: kafka-consumer
-  name: kafka-consumer
+    app: kavitha-kafka-consumer
+  name: kavitha-kafka-consumer
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: kafka-consumer
+        app: kavitha-kafka-consumer
     spec:
       containers:
-      - name: kafka-consumer
+      - name: kavitha-kafka-consumer
         image: scholzj/kafka-consumer:latest
         env:
           - name: BOOTSTRAP_SERVERS

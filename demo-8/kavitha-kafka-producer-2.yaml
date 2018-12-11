@@ -24,8 +24,8 @@ spec:
           - name: NUMBER_OF_KEYS
             value: "3"
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: kavitha-kafka-producer2
 spec:

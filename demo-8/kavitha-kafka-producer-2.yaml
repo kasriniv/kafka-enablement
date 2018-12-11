@@ -23,3 +23,15 @@ spec:
             value: "1000"
           - name: NUMBER_OF_KEYS
             value: "3"
+ ---
+kind: Service
+apiVersion: v1
+metadata:
+  name: kavitha-kafka-producer2
+spec:
+  selector:
+    app: kavitha-kafka-producer2
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

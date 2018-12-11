@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: kavitha-kafka-producer
+  name: kavitha-kafka-producer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kavitha-kafka-producer
+    spec:
+      containers:
+      - name: kavitha-kafka-producer
+        image: scholzj/kafka-producer:latest
+        env:
+          - name: BOOTSTRAP_SERVERS
+            value: my-cluster-kafka:9092
+          - name: TOPIC
+            value: my-topic
+          - name: TIMER
+            value: "1000"
+          - name: NUMBER_OF_KEYS
+            value: "3"
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: kavitha-kafka-consumer
+  name: kavitha-kafka-consumer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kavitha-kafka-consumer
+    spec:
+      containers:
+      - name: kavitha-kafka-consumer
+        image: scholzj/kafka-consumer:latest
+        env:
+          - name: BOOTSTRAP_SERVERS
+            value: my-cluster-kafka:9092
+          - name: TOPIC
+            value: my-topic
+          - name: GROUP_ID
+            value: my-kafka-consumer

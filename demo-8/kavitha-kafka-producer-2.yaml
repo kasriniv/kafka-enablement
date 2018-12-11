@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: kavitha-kafka-producer2
+  name: kavitha-kafka-producer2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kavitha-kafka-producer2
+    spec:
+      containers:
+      - name: kavitha-kafka-producer2
+        image: kasriniv/kafka-producer:latest
+        env:
+          - name: BOOTSTRAP_SERVERS
+            value: my-cluster-kafka:9092
+          - name: TOPIC
+            value: my-topic
+          - name: TIMER
+            value: "1000"
+          - name: NUMBER_OF_KEYS
+            value: "3"
